@@ -1,0 +1,184 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = 'Our Story | Meridian Specialty Coffee';
+const description = "Meridian was built on one belief: great coffee tells the story of its origin. Discover our sourcing philosophy, our roasters, and why provenance matters.";
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://meridian-73d4.vercel.app';
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'Our Story',
+    url: `${siteUrl}/about`,
+    description,
+    isPartOf: { '@type': 'WebSite', name: 'Meridian', url: siteUrl },
+    about: { '@type': 'Organization', name: 'Meridian' }
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Meridian',
+    url: siteUrl,
+    logo: `${siteUrl}/logo.svg`,
+    description: 'Single-origin specialty coffee roaster sourcing directly from farmers and rewarding provenance.',
+    foundingDate: '2025'
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Our Story', item: `${siteUrl}/about` }
+    ]
+  }
+];
+
+const origins = [
+  { coord: 'N 4°42′', coord2: 'W 75°33′', place: 'Colombia · Huila',   note: 'Washed Pink Bourbon from the cloud forests of Pitalito. Peach, jasmine, clean acidity.' },
+  { coord: 'N 6°45′', coord2: 'E 38°28′', place: 'Ethiopia · Yirgacheffe', note: 'Natural-process Heirloom from a three-hectare plot near Kochere. Strawberry jam, bergamot, a silk finish.' },
+  { coord: 'S 0°32′', coord2: 'E 36°40′', place: 'Kenya · Nyeri',       note: 'Washed SL28 from the Kirinyaga foothills. Blackcurrant, muscovado, classic Kenyan backbone.' },
+];
+
+const stages = [
+  { n: '01', title: 'We travel', body: 'Twice a year our founders fly to the country of harvest, cup at dry mills, and walk farms with the producers whose lots we’re considering.' },
+  { n: '02', title: 'We taste',  body: 'Every candidate lot is cupped blind against ten alternatives at origin, and again when it lands. Only the top scoring coffees make the cut.' },
+  { n: '03', title: 'We roast',  body: 'Profiles are developed over 20+ sample roasts on the same drum machine we produce on. When the curve sings, we lock it in.' },
+  { n: '04', title: 'We ship',   body: 'Beans ship within 72 hours of roast. Subscriptions land the same week they leave the drum. Freshness is a promise, not a marketing word.' },
+];
+---
+<Base
+  title={title}
+  description={description}
+  structuredData={structuredData}
+  tags={["craft coffee roaster brand story","single origin coffee","specialty coffee sourcing","artisan coffee roastery"]}
+>
+  <section class="relative">
+    <div class="max-w-5xl mx-auto px-6 md:px-10 pt-16 md:pt-24 pb-10 text-center">
+      <p class="text-xs uppercase tracking-[0.4em] opacity-60 mb-6">— Our Story</p>
+      <h1 class="font-display text-5xl md:text-7xl italic leading-[1.02] tracking-tight">
+        Where every cup<br/>has a <span class="text-[color:var(--color-ember)]">coordinate.</span>
+      </h1>
+      <p class="mt-8 text-lg md:text-xl opacity-80 max-w-2xl mx-auto leading-relaxed">
+        Meridian is a <strong class="font-medium">craft coffee roaster</strong> built on one belief: great coffee tells the story of its origin. We just try not to interrupt.
+      </p>
+    </div>
+    <div class="max-w-5xl mx-auto px-6 md:px-10">
+      <div class="aspect-[16/7] relative rounded-sm overflow-hidden bg-[color:var(--color-ink)]">
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, #2c1810 0%, #1a1411 50%, #0f0a08 100%);"></div>
+        <svg viewBox="0 0 1200 525" class="absolute inset-0 w-full h-full" aria-hidden="true">
+          <g stroke="#c7462a" stroke-width="0.5" fill="none" opacity="0.3">
+            <circle cx="600" cy="262" r="60"/>
+            <circle cx="600" cy="262" r="120"/>
+            <circle cx="600" cy="262" r="200"/>
+            <line x1="200" y1="262" x2="1000" y2="262"/>
+            <line x1="600" y1="50" x2="600" y2="475"/>
+          </g>
+          <g fill="#f4ede1" opacity="0.7" font-family="Georgia, serif" font-size="11" letter-spacing="2">
+            <text x="170" y="120" text-anchor="middle">HUILA · CO</text>
+            <circle cx="170" cy="140" r="3" fill="#c7462a"/>
+            <text x="1000" y="160" text-anchor="middle">YIRGACHEFFE · ET</text>
+            <circle cx="1000" cy="180" r="3" fill="#c7462a"/>
+            <text x="950" y="400" text-anchor="middle">NYERI · KE</text>
+            <circle cx="950" cy="380" r="3" fill="#c7462a"/>
+            <text x="300" y="420" text-anchor="middle">ANTIGUA · GT</text>
+            <circle cx="300" cy="400" r="3" fill="#c7462a"/>
+          </g>
+        </svg>
+        <div class="absolute bottom-6 left-6 right-6 text-[color:var(--color-cream)] text-center">
+          <p class="font-display italic text-2xl md:text-3xl leading-tight">"A map of the best coffee we've ever tasted."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32 grid md:grid-cols-12 gap-12">
+      <div class="md:col-span-4">
+        <p class="text-xs uppercase tracking-[0.4em] opacity-60 mb-6">— 01 · Why we exist</p>
+        <h2 class="font-display text-4xl md:text-5xl italic leading-[1.05]">The short version.</h2>
+      </div>
+      <div class="md:col-span-7 md:col-start-6 space-y-6 text-lg leading-relaxed opacity-85">
+        <p>Coffee is the second-most traded commodity on earth. And yet, for all that volume, the vast majority of it is grown anonymously, blended anonymously, and sold with stories written by marketing teams rather than farmers.</p>
+        <p>Meridian is our small attempt to un-do that. We buy lots, not commodity averages. We buy from people, not warehouses. We roast in batches small enough that every bag can carry the name of the producer, the altitude of the farm, and a harvest date that was true this year — not twelve months ago.</p>
+        <p>None of this is new. Good roasters have been doing it for twenty years. What's new is that we want to make it the default — not the luxury edition. A specialty coffee brand shouldn't mean a $40 bag. It should mean a bag that tells you the truth.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[color:var(--color-ink)] text-[color:var(--color-cream)] relative grain">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32 relative z-10">
+      <div class="max-w-2xl mb-16">
+        <p class="text-xs uppercase tracking-[0.4em] opacity-60 mb-6">— 02 · Where we source</p>
+        <h2 class="font-display text-4xl md:text-5xl italic leading-[1.05]">Three meridians we keep returning to.</h2>
+        <p class="mt-6 text-lg opacity-75 leading-relaxed">Our launch lineup is drawn from three growing regions we've cupped, walked and bought from over the past two years. Each tells a different story, in a different accent.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {origins.map((o) => (
+          <article class="border border-current/20 rounded-sm p-8 bg-[color:var(--color-ink-soft)]/40 hover:border-[color:var(--color-ember)]/60 transition-colors duration-500">
+            <div class="flex items-start justify-between mb-8">
+              <div>
+                <p class="font-mono text-[10px] uppercase tracking-[0.3em] opacity-60">{o.coord}</p>
+                <p class="font-mono text-[10px] uppercase tracking-[0.3em] opacity-60">{o.coord2}</p>
+              </div>
+              <span class="w-2 h-2 rounded-full bg-[color:var(--color-ember)] mt-1"></span>
+            </div>
+            <h3 class="font-display text-2xl italic mb-4 leading-tight">{o.place}</h3>
+            <p class="opacity-75 leading-relaxed text-sm">{o.note}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="relative">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
+      <div class="max-w-2xl mb-16">
+        <p class="text-xs uppercase tracking-[0.4em] opacity-60 mb-6">— 03 · How we work</p>
+        <h2 class="font-display text-4xl md:text-5xl italic leading-[1.05]">Four steps. No shortcuts.</h2>
+      </div>
+      <div class="grid md:grid-cols-4 gap-8">
+        {stages.map((s) => (
+          <article class="relative">
+            <p class="font-display italic text-6xl text-[color:var(--color-ember)]/40 mb-4 leading-none">{s.n}</p>
+            <h3 class="font-display text-xl md:text-2xl italic mb-3 leading-tight">{s.title}</h3>
+            <p class="opacity-75 leading-relaxed text-sm">{s.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-current/10 relative">
+    <div class="max-w-4xl mx-auto px-6 md:px-10 py-24 md:py-32">
+      <p class="text-xs uppercase tracking-[0.4em] opacity-60 mb-6 text-center">— 04 · A note from the founders</p>
+      <div class="space-y-6 text-lg leading-relaxed opacity-85 font-display italic text-center">
+        <p class="text-2xl md:text-3xl leading-[1.3]">"We started Meridian because we kept being disappointed by the gap between what a bag of coffee looked like on the shelf and what was actually in it."</p>
+      </div>
+      <div class="mt-10 space-y-5 text-base leading-relaxed opacity-85 max-w-2xl mx-auto">
+        <p>If you've ever cupped a bright Kenyan SL28 next to a jasmine-forward Ethiopian heirloom, you know that coffee isn't one drink. It's a hundred. And most of that range gets flattened in the name of consistency.</p>
+        <p>Meridian is our attempt to bring that range back onto the counter — packaged honestly, roasted with care, priced so it doesn't feel like a treat you only allow yourself on Saturdays.</p>
+        <p>We're not trying to reinvent anything. Specialty coffee already knows how to do this well. We just want to do it with a little more clarity, a little more patience, and a lot less marketing gloss.</p>
+        <p>Thanks for being here before we opened the doors. It matters more than you think.</p>
+      </div>
+      <p class="mt-12 text-center font-display italic text-xl">— The Meridian founders</p>
+    </div>
+  </section>
+
+  <section class="bg-[color:var(--color-cream-soft)]">
+    <div class="max-w-4xl mx-auto px-6 md:px-10 py-20 md:py-28 text-center">
+      <h2 class="font-display text-4xl md:text-5xl italic leading-[1.05]">
+        Convinced? <span class="text-[color:var(--color-ember)]">Pour first.</span>
+      </h2>
+      <p class="mt-6 text-lg opacity-80 max-w-xl mx-auto leading-relaxed">Join the waitlist and we'll reach out the day our launch lineup is ready to ship.</p>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-5">
+        <a href="/#waitlist" class="inline-flex items-center gap-2 bg-[color:var(--color-ember)] text-[color:var(--color-cream)] rounded-full px-7 py-3.5 text-sm uppercase tracking-[0.2em] hover:bg-[color:var(--color-ink)] transition">
+          Join the waitlist
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="/" class="underline underline-offset-4 hover:text-[color:var(--color-ember)] transition text-sm">Back to home</a>
+      </div>
+    </div>
+  </section>
+</Base>
