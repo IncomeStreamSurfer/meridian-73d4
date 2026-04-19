@@ -25,6 +25,12 @@ const structuredData = [
     description: 'Coffee at the Intersection of Origin and Craft'
   }
 ];
+
+const pillars = [
+  { tag: 'I.',   title: 'Origin-First Sourcing', body: 'We build relationships directly with producers in Colombia, Ethiopia, Kenya, Guatemala and beyond — buying lots that tell a specific story of place, elevation and process.' },
+  { tag: 'II.',  title: 'Small-Batch Roasting',  body: 'Every lot is profiled individually. We roast in batches of 8kg on a heritage drum machine, pulling the curve when the bean’s sugars and acidity converge — not when a timer tells us to.' },
+  { tag: 'III.', title: 'Transparent Everything',body: 'FOB price, farmer name, altitude, harvest date, cup score. Printed on every bag. What’s left unsaid in commodity coffee is what defines specialty coffee for us.' }
+];
 ---
 <Base
   title={title}
@@ -84,5 +90,98 @@ const structuredData = [
         <div class="absolute -bottom-3 -right-3 w-24 h-24 border border-current/10 rounded-full hidden md:block"></div>
       </aside>
     </div>
+
+    <div class="border-y border-current/10 py-5 overflow-hidden">
+      <div class="flex items-center gap-10 whitespace-nowrap font-display italic text-xl md:text-2xl opacity-60 animate-[marquee_40s_linear_infinite]">
+        {Array.from({length: 3}).map(() => (
+          <>
+            <span>Single-origin</span>
+            <span class="text-[color:var(--color-ember)]">—</span>
+            <span>Small-batch roasted</span>
+            <span class="text-[color:var(--color-ember)]">—</span>
+            <span>Transparent sourcing</span>
+            <span class="text-[color:var(--color-ember)]">—</span>
+            <span>Traceable to the farm</span>
+            <span class="text-[color:var(--color-ember)]">—</span>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="relative">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32 grid md:grid-cols-12 gap-12">
+      <div class="md:col-span-4">
+        <p class="text-xs uppercase tracking-[0.4em] opacity-60 mb-6">— 01 · The Idea</p>
+        <h2 class="font-display text-4xl md:text-5xl italic leading-[1.05]">A brand shaped by where the bean grew.</h2>
+      </div>
+      <div class="md:col-span-7 md:col-start-6 space-y-6 text-lg leading-relaxed opacity-85">
+        <p>Most coffee you drink is an average — a blend of many farms, many altitudes, many convictions, designed to taste the same in June as it does in December. That's a valid choice. It's just not ours.</p>
+        <p>Meridian started with a simpler belief: that the place a bean is grown is the most interesting thing about it. A washed Gesha from the cloud forests of Huila doesn't taste like anything else in the world — and it shouldn't. Our job, as roasters, is to step out of the way.</p>
+        <p>So we source single-origin lots directly from producers we trust. We roast in small batches on equipment that rewards patience. And we write down everything — altitude, variety, harvest, score — so the person pouring the cup knows exactly where it came from.</p>
+        <p class="pt-2">
+          <a href="/about" class="font-display italic text-xl underline underline-offset-4 decoration-[color:var(--color-ember)] hover:text-[color:var(--color-ember)] transition">Read the full story →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[color:var(--color-ink)] text-[color:var(--color-cream)] relative grain">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32 relative z-10">
+      <div class="max-w-2xl mb-16">
+        <p class="text-xs uppercase tracking-[0.4em] opacity-60 mb-6">— 02 · What we believe</p>
+        <h2 class="font-display text-4xl md:text-5xl italic leading-[1.05]">Three ideas, held with uncommon stubbornness.</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-10 md:gap-14">
+        {pillars.map((p) => (
+          <article class="group">
+            <p class="font-display italic text-5xl text-[color:var(--color-ember)] mb-6">{p.tag}</p>
+            <h3 class="font-display text-2xl md:text-3xl italic mb-4 leading-tight">{p.title}</h3>
+            <p class="opacity-75 leading-relaxed">{p.body}</p>
+            <div class="mt-6 w-10 h-px bg-current/30 group-hover:w-20 group-hover:bg-[color:var(--color-ember)] transition-all duration-500"></div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="waitlist" class="relative scroll-mt-24">
+    <div class="max-w-5xl mx-auto px-6 md:px-10 py-28 md:py-36 text-center">
+      <p class="text-xs uppercase tracking-[0.4em] opacity-60 mb-8">— 03 · Reserve your seat</p>
+      <h2 class="font-display text-5xl md:text-7xl italic leading-[1.02] tracking-tight">
+        Be the first<br/>to <span class="text-[color:var(--color-ember)]">pour.</span>
+      </h2>
+      <p class="mt-8 text-lg md:text-xl max-w-xl mx-auto leading-relaxed opacity-80">
+        Join the Meridian waitlist for early access to our launch lineup, origin dispatches from the road, and a founder's letter on the day we open the shop.
+      </p>
+
+      <div class="mt-12 flex justify-center">
+        <WaitlistForm />
+      </div>
+
+      <div class="mt-14 flex flex-col sm:flex-row items-center justify-center gap-6 text-xs uppercase tracking-[0.3em] opacity-60">
+        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[color:var(--color-ember)]"></span> Early Access</span>
+        <span class="hidden sm:block">·</span>
+        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[color:var(--color-ember)]"></span> Founder's Letter</span>
+        <span class="hidden sm:block">·</span>
+        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[color:var(--color-ember)]"></span> First-Pour Drops</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-current/10">
+    <div class="max-w-4xl mx-auto px-6 md:px-10 py-20 md:py-28 text-center">
+      <p class="font-display italic text-3xl md:text-4xl leading-[1.2]">
+        "Great coffee doesn't need a speech.<br/>It needs a quiet room and a cup of the right size."
+      </p>
+      <p class="mt-6 text-xs uppercase tracking-[0.4em] opacity-60">— A note from the roastery</p>
+    </div>
   </section>
 </Base>
+
+<style is:global>
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-33.333%); }
+  }
+</style>

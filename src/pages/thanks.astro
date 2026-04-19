@@ -1,0 +1,84 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = "You're In | Meridian Coffee Waitlist";
+const description = "Thanks for joining the Meridian waitlist. We'll be in touch soon with early access, behind-the-scenes stories, and your first look at our launch lineup.";
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://meridian-73d4.vercel.app';
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: "You're on the List",
+    url: `${siteUrl}/thanks`,
+    description,
+    isPartOf: { '@type': 'WebSite', name: 'Meridian', url: siteUrl }
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Thanks', item: `${siteUrl}/thanks` }
+    ]
+  }
+];
+---
+<Base title={title} description={description} theme="dark" structuredData={structuredData}>
+  <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none opacity-40" aria-hidden="true">
+      <div class="absolute top-1/3 left-1/4 w-96 h-96 rounded-full bg-[color:var(--color-ember)]/20 blur-[120px]"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-[color:var(--color-brass)]/10 blur-[100px]"></div>
+    </div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6 md:px-10 py-20 text-center reveal-up">
+      <div class="mx-auto w-16 h-16 rounded-full border border-[color:var(--color-ember)]/60 flex items-center justify-center mb-10 pulse-soft">
+        <svg class="w-7 h-7 text-[color:var(--color-ember)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <p class="text-xs uppercase tracking-[0.4em] opacity-60 mb-6">— Confirmed</p>
+
+      <h1 class="font-display text-5xl md:text-7xl italic leading-[1.02] tracking-tight">
+        You're on the list.<br/>
+        <span class="text-[color:var(--color-ember)]">Good taste confirmed.</span>
+      </h1>
+
+      <p class="mt-10 text-lg md:text-xl opacity-85 leading-relaxed max-w-xl mx-auto">
+        Thanks for putting your name down. You're officially among the first people we'll reach out to when Meridian opens — with early access to our launch lineup, origin dispatches from the field, and a founder's letter on the day we go live.
+      </p>
+
+      <div class="mt-14 grid sm:grid-cols-3 gap-8 text-left max-w-2xl mx-auto">
+        <div>
+          <p class="font-display italic text-3xl text-[color:var(--color-ember)] mb-2">I.</p>
+          <p class="text-xs uppercase tracking-[0.25em] opacity-60 mb-1">Watch your inbox</p>
+          <p class="text-sm opacity-80 leading-relaxed">A short welcome note is already on its way.</p>
+        </div>
+        <div>
+          <p class="font-display italic text-3xl text-[color:var(--color-ember)] mb-2">II.</p>
+          <p class="text-xs uppercase tracking-[0.25em] opacity-60 mb-1">Origin dispatches</p>
+          <p class="text-sm opacity-80 leading-relaxed">We'll share stories from the road as our first harvests ship.</p>
+        </div>
+        <div>
+          <p class="font-display italic text-3xl text-[color:var(--color-ember)] mb-2">III.</p>
+          <p class="text-xs uppercase tracking-[0.25em] opacity-60 mb-1">First pour</p>
+          <p class="text-sm opacity-80 leading-relaxed">Waitlist members get priority on our opening drop.</p>
+        </div>
+      </div>
+
+      <div class="mt-16 flex flex-wrap items-center justify-center gap-5">
+        <a href="/" class="inline-flex items-center gap-2 border border-current/30 rounded-full px-6 py-3 text-sm uppercase tracking-[0.2em] hover:bg-[color:var(--color-cream)] hover:text-[color:var(--color-ink)] transition">
+          Back to Home
+        </a>
+        <a href="/about" class="inline-flex items-center gap-2 bg-[color:var(--color-ember)] text-[color:var(--color-cream)] rounded-full px-6 py-3 text-sm uppercase tracking-[0.2em] hover:bg-[color:var(--color-cream)] hover:text-[color:var(--color-ink)] transition">
+          Read our story
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <p class="mt-20 font-display italic text-lg opacity-70">— The Meridian Team</p>
+    </div>
+  </section>
+</Base>
